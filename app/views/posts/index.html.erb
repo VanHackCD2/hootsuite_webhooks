@@ -1,0 +1,45 @@
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= link_to hooks_path, class: "btn btn-default" do %><i class="fa fa-undo"></i> <%= t('actions.back') %><strong> Hooks</strong><% end %>
+
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">Posts</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th><%= t('activerecord.attributes.hook.message') %></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @posts.each do |post| %>
+                <tr>
+                  <td><%= link_to("#{post.message[0, 30]}...", post_path(post)) %></td>
+
+                  <td><%= link_to post_path(post), method: 'delete', data: {confirm: "Are you sure?"}, class: "btn btn-danger" do %><i class="fa fa-ban"></i> <%= t('actions.remove') %><% end %></td>
+                </tr>
+              <% end %>
+            </tbody>
+
+            <tfoot>
+              <tr>
+                <th><%= t('activerecord.attributes.hook.message') %></th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</section>
+<!-- /.content -->

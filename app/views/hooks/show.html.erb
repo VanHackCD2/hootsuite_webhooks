@@ -25,6 +25,10 @@
         <%= link_to hooks_path, class: "btn btn-default" do %>
           <i class="fa fa-undo"></i><%= t('actions.back') %>
         <% end %>
+
+        <%= link_to posts_path(hook_id: @hook.id), class: "btn btn-success" do %>
+          <i class="fa fa-envelope"></i>Posts
+        <% end %>
       </p>
     </div>
   </div>
@@ -42,15 +46,19 @@
           <i class="fa fa-minus"></i>
         </button>
 
+        <!--
         <button type="button" class="btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
           <i class="fa fa-times"></i>
         </button>
+        -->
       </div>
       <!-- /. tools -->
     </div>
 
     <!-- /.box-header -->
     <%= form_for(@post, class: "form-horizontal") do |f| %>
+      <%= f.hidden_field :hook_id, value: @hook.id %>
+
       <div class="box-body">
         <div class="form-group">
           <%= f.text_area :message, class: "form-control", size: "30x6" %>
@@ -59,8 +67,6 @@
 
       <div class="box-footer">
         <%= f.submit class: "btn btn-primary" %>
-
-        <%= link_to hooks_path, class: "btn btn-default" do %><i class="fa fa-undo"></i><%= t('actions.back') %><% end %>
       </div>
     <% end %>
   </div>

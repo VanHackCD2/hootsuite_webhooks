@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :hooks
-  resources :posts
+  resources :posts, only: [:index, :show, :new, :create, :destroy]
 end
