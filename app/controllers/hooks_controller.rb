@@ -6,6 +6,7 @@ class HooksController < ApplicationController
   end
 
   def show
+    @post = Post.new(Post.empty_fields)
   end
 
   def new

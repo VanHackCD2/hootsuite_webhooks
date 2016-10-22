@@ -29,5 +29,40 @@
     </div>
   </div>
   <!-- /.box -->
+
+  <div class="box">
+    <div class="box-header">
+      <h3 class="box-title">POST
+        <small>message</small>
+      </h3>
+
+      <!-- tools box -->
+      <div class="pull-right box-tools">
+        <button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+          <i class="fa fa-minus"></i>
+        </button>
+
+        <button type="button" class="btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+      <!-- /. tools -->
+    </div>
+
+    <!-- /.box-header -->
+    <%= form_for(@post, class: "form-horizontal") do |f| %>
+      <div class="box-body">
+        <div class="form-group">
+          <%= f.text_area :message, class: "form-control", size: "30x6" %>
+        </div>
+      </div>
+
+      <div class="box-footer">
+        <%= f.submit class: "btn btn-primary" %>
+
+        <%= link_to hooks_path, class: "btn btn-default" do %><i class="fa fa-undo"></i><%= t('actions.back') %><% end %>
+      </div>
+    <% end %>
+  </div>
 </section>
 <!-- /.content -->
