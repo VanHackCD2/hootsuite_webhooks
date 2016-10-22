@@ -13,6 +13,7 @@
           <table id="example1" class="table table-bordered table-striped">
             <thead>
               <tr>
+                <th><%= t('activerecord.attributes.hook.id') %></th>
                 <th><%= t('activerecord.attributes.hook.url') %></th>
               </tr>
             </thead>
@@ -20,6 +21,7 @@
             <tbody>
               <% @hooks.each do |hook| %>
                 <tr>
+                  <td><%= link_to(hook.id, hook_path(hook)) %></td>
                   <td><%= link_to(hook.url, hook_path(hook)) %></td>
 
                   <td><%= link_to edit_hook_path(hook), class: "btn btn-warning" do %><i class="fa fa-pencil"></i> <%= t('actions.edit') %><% end %></td>
@@ -31,6 +33,7 @@
 
             <tfoot>
               <tr>
+                <th><%= t('activerecord.attributes.hook.id') %></th>
                 <th><%= t('activerecord.attributes.hook.url') %></th>
               </tr>
             </tfoot>

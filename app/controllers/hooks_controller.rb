@@ -9,11 +9,11 @@ class HooksController < ApplicationController
   end
 
   def new
-    @hook = Hook.new
+    @hook = Hook.new(Hook.empty_fields)
   end
 
   def create
-    @hook = Hook.new(hook_params)
+    @hook = Hook.new(hook_params.to_h)
 
     if @hook.save
       flash[:notice] = t('flash.hook.create')
@@ -30,7 +30,9 @@ class HooksController < ApplicationController
   end
 
   def update
-    if @hook.update(hook_params)
+  	Hook.set(@hook, hook_params)
+
+    if @hook.save
       flash[:notice] = t('flash.hook.update')
 
       redirect_to hooks_path
