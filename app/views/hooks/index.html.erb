@@ -1,0 +1,47 @@
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <%= link_to new_hook_path, class: "btn btn-primary" do %><i class="fa fa-plus"></i> <%= t('actions.new') %><strong> Hook</strong><% end %>
+
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">Hooks</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th><%= t('activerecord.attributes.hook.url') %></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @hooks.each do |hook| %>
+                <tr>
+                  <td><%= link_to(hook.url, hook_path(hook)) %></td>
+
+                  <td><%= link_to edit_hook_path(hook), class: "btn btn-warning" do %><i class="fa fa-pencil"></i> <%= t('actions.edit') %><% end %></td>
+
+                  <td><%= link_to hook_path(hook), method: 'delete', data: {confirm: "Are you sure?"}, class: "btn btn-danger" do %><i class="fa fa-ban"></i> <%= t('actions.remove') %><% end %></td>
+                </tr>
+              <% end %>
+            </tbody>
+
+            <tfoot>
+              <tr>
+                <th><%= t('activerecord.attributes.hook.url') %></th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</section>
+<!-- /.content -->

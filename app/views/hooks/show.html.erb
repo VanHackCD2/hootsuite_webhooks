@@ -1,0 +1,28 @@
+<!-- Main content -->
+<section class="content">
+  <!-- Default box -->
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">Hook</h3>
+    </div>
+
+    <div class="box-body">
+      <p>
+        <strong><%= t('activerecord.attributes.hook.url') %>: </strong>
+        <%= @hook.url %>
+      </p>
+
+      <p>
+        <%= link_to edit_hook_path(@hook), class: "btn btn-warning" do %>
+          <i class="fa fa-pencil"></i><%= t('actions.edit') %>
+        <% end %>
+
+        <%= link_to hooks_path, class: "btn btn-default" do %>
+          <i class="fa fa-undo"></i><%= t('actions.back') %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <!-- /.box -->
+</section>
+<!-- /.content -->
