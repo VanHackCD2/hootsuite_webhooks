@@ -1,0 +1,29 @@
+<!-- Main content -->
+<section class="content">
+  <!-- Default box -->
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title">Post</h3>
+    </div>
+
+    <div class="box-body">
+      <p>
+        <strong><%= t('activerecord.attributes.hook.hook') %>: </strong>
+        <%= @post.hook.url %>
+      </p>
+
+      <p>
+        <strong><%= t('activerecord.attributes.hook.message') %>: </strong>
+        <%= @post.message %>
+      </p>
+
+      <p>
+        <%= link_to posts_path(hook_id: @post.hook.id), class: "btn btn-default" do %>
+          <i class="fa fa-undo"></i><%= t('actions.back') %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <!-- /.box -->
+</section>
+<!-- /.content -->

@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :destroy]
+  before_action :set_post, only: [:show]
 
   def index
     redirect_to hooks_path if params[:hook_id].nil?
 
     @posts = Post.where(posts: { hook_id: params[:hook_id] })
+    @hook = @posts[0].hook
   end
 
   def show
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
     redirect_to posts_path(hook_id: @post.hook.id)
   end
 
+=begin
   def destroy
     if @post.destroy
       flash[:notice] = t("flash.post.destroy")
@@ -35,6 +37,7 @@ class PostsController < ApplicationController
 
     redirect_to posts_path(hook_id: @post.hook.id)
   end
+=end
 
 private
 
