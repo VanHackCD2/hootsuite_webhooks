@@ -21,3 +21,8 @@
 .byebug_history
 
 .env
+
+public/assets/
+public/assets/*
+/public/assets/
+/public/assets/*
