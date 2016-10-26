@@ -8,13 +8,18 @@
 
     <div class="box-body">
       <p>
-        <strong><%= t('activerecord.attributes.hook.hook') %>: </strong>
+        <strong><%= t('activerecord.attributes.post.hook') %>: </strong>
         <%= @post.hook.url %>
       </p>
 
       <p>
-        <strong><%= t('activerecord.attributes.hook.message') %>: </strong>
+        <strong><%= t('activerecord.attributes.post.message') %>: </strong>
         <%= @post.message %>
+      </p>
+
+      <p>
+        <strong><%= t('activerecord.attributes.post.created_at') %>: </strong>
+        <%= DateTime.parse(@post.created_at).strftime("%T - %m/%d/%Y") %>
       </p>
 
       <p>

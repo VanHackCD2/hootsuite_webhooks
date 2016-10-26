@@ -13,7 +13,8 @@
           <table id="example1" class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th><%= t('activerecord.attributes.hook.message') %></th>
+                <th><%= t('activerecord.attributes.post.message') %></th>
+                <th><%= t('activerecord.attributes.post.created_at') %></th>
               </tr>
             </thead>
 
@@ -21,13 +22,15 @@
               <% @posts.each do |post| %>
                 <tr>
                   <td><%= link_to("#{post.message[0, 30]}...", post_path(post)) %></td>
+                  <td><%= DateTime.parse(post.created_at).strftime("%H:%M:%S - %m/%d/%Y") %></td>
                 </tr>
               <% end %>
             </tbody>
 
             <tfoot>
               <tr>
-                <th><%= t('activerecord.attributes.hook.message') %></th>
+                <th><%= t('activerecord.attributes.post.message') %></th>
+                <th><%= t('activerecord.attributes.post.created_at') %></th>
               </tr>
             </tfoot>
           </table>
